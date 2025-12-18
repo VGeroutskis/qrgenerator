@@ -24,21 +24,21 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-        - name: Create temporary pyproject.toml for tests
-          run: |
-            cat > pyproject.toml <<PYPROJECT
-            [build-system]
-            requires = ["setuptools>=61.0", "wheel"]
-            build-backend = "setuptools.build_meta"
+      - name: Create temporary pyproject.toml for tests
+        run: |
+          cat > pyproject.toml <<PYPROJECT
+          [build-system]
+          requires = ["setuptools>=61.0", "wheel"]
+          build-backend = "setuptools.build_meta"
 
-            [project]
-            name = "qrgenerator"
-            version = "0.0.0"
-            requires-python = ">=3.8"
+          [project]
+          name = "qrgenerator"
+          version = "0.0.0"
+          requires-python = ">=3.8"
 
-            [tool.setuptools.packages.find]
-            include = ["qrgenerator*"]
-            PYPROJECT
+          [tool.setuptools.packages.find]
+          include = ["qrgenerator*"]
+          PYPROJECT
 
       - name: Install package (editable) and deps
         run: |
