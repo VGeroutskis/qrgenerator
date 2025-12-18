@@ -30,20 +30,20 @@ jobs:
       - name: Create temporary pyproject.toml for build
         run: |
           cat > pyproject.toml <<PYPROJECT
-[build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+          [build-system]
+          requires = ["setuptools>=61.0", "wheel"]
+          build-backend = "setuptools.build_meta"
 
-[project]
-name = "qrgenerator"
-version = "${VERSION}"
-description = "QR code generator"
-readme = "README.md"
-requires-python = ">=3.8"
+          [project]
+          name = "qrgenerator"
+          version = "${VERSION}"
+          description = "QR code generator"
+          readme = "README.md"
+          requires-python = ">=3.8"
 
-[tool.setuptools.packages.find]
-include = ["qrgenerator*"]
-PYPROJECT
+          [tool.setuptools.packages.find]
+          include = ["qrgenerator*"]
+          PYPROJECT
 
       - name: Install build tools
         run: |
